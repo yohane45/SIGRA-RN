@@ -10,6 +10,7 @@ Alert,
 } from 'react-native';
 
 import colors from '../styles/colors';
+import { router } from 'expo-router';
 
 const RiesgosScreen = () => {
 
@@ -106,25 +107,27 @@ return (
             Fecha: {riesgo.fecha}
         </Text>
 
-          {/* ACCIONES */}
+{/* ACCIONES */}
 
         <View style={styles.actions}>
-
             <Pressable
             style={styles.buttonView}
             onPress={() =>
-                Alert.alert(
-                'Ver riesgo',
-                `Riesgo seleccionado: ${riesgo.nombre}`
-                )
+                router.push({
+                    pathname:'/riesgo-detalle',
+                    params: {
+                        nombre: riesgo.nombre,
+                        nivel: riesgo.nivel,
+                        estado: riesgo.estado,
+                        fecha: riesgo.fecha,
+                    },
+                })
             }
-            >
-
-            <Text style={styles.buttonText}>
+        >
+        <Text style={styles.buttonText}>
                 Ver
-            </Text>
-
-            </Pressable>
+        </Text>
+    </Pressable>
 
             <Pressable
             style={styles.buttonEdit}
@@ -167,7 +170,6 @@ return (
     </ScrollView>
 );
 };
-
 
 const styles = StyleSheet.create({
 
