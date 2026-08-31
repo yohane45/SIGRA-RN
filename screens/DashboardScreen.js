@@ -5,14 +5,16 @@ View,
 Text,
 StyleSheet,
 ScrollView,
+Pressable,
 } from 'react-native';
 import colors from '../styles/colors';
+import { router } from 'expo-router';
 const DashboardScreen = () => {
 
 return (
-    <ScrollView style={styles.container}>
+<ScrollView style={styles.container}>
 
-      {/* Encabezado */}
+{/* ENCABEZADO */}
 
     <View style={styles.header}>
 
@@ -27,6 +29,7 @@ return (
         </View>
 
         <View style={styles.userContainer}>
+
         <Text style={styles.userName}>
             Yohane Gualdron
         </Text>
@@ -37,34 +40,34 @@ return (
         </View>
 
     </View>
-
-
-      {/* Descripción */}
+{/* DESCRIPCIÓN */}
 
     <Text style={styles.description}>
         Resumen general de Seguridad y Salud en el Trabajo
     </Text>
 
-      {/* Tarjetas */}
+{/* TARJETAS */}
 
     <View style={styles.cardsContainer}>
 
-        <View style={styles.card}>
+{/* RIESGOS */}
 
+    <Pressable
+        style={styles.card}
+        onPress={() => router.push('/riesgos')}
+    >
         <Text style={styles.cardNumber}>
             12
         </Text>
-
         <Text style={styles.cardTitle}>
             Riesgos
         </Text>
-
         <Text style={styles.cardDescription}>
             Riesgos registrados
         </Text>
+    </Pressable>
 
-        </View>
-
+{/* INSPECCIONES */}
 
         <View style={styles.card}>
 
@@ -81,8 +84,7 @@ return (
         </Text>
 
         </View>
-
-
+{/* INCIDENTES */}
         <View style={styles.card}>
 
         <Text style={styles.cardNumber}>
@@ -99,6 +101,7 @@ return (
 
         </View>
 
+        {/* CAPACITACIONES */}
 
         <View style={styles.card}>
 
@@ -117,8 +120,7 @@ return (
         </View>
 
     </View>
-
-      {/* Actividad reciente */}
+{/* ACTIVIDAD RECIENTE */}
 
     <View style={styles.activityContainer}>
 
@@ -143,31 +145,37 @@ return (
         </Text>
 
     </View>
+{/* ALERTAS */}
     <View style={styles.alertContainer}>
-
-<Text style={styles.sectionTitle}>
+    <Text style={styles.sectionTitle}>
     Alertas
-</Text>
-
-<View style={styles.alertItem}>
-    <Text style={styles.alertDanger}>
-    🔴 Examen médico pendiente
     </Text>
-</View>
 
-<View style={styles.alertItem}>
-    <Text style={styles.alertWarning}>
-    🟠 Capacitación próxima
-    </Text>
-</View>
+        <View style={styles.alertItem}>
 
-<View style={styles.alertItem}>
-    <Text style={styles.alertDanger}>
-    🔴 Hallazgo sin cerrar
-    </Text>
-</View>
+        <Text style={styles.alertDanger}>
+            🔴 Examen médico pendiente
+        </Text>
 
-<View style={styles.alertItem}>
+        </View>
+
+        <View style={styles.alertItem}>
+
+        <Text style={styles.alertWarning}>
+            🟠 Capacitación próxima
+        </Text>
+
+        </View>
+
+        <View style={styles.alertItem}>
+
+        <Text style={styles.alertDanger}>
+            🔴 Hallazgo sin cerrar
+        </Text>
+
+        </View>
+
+    <View style={styles.alertItem}>
     <Text style={styles.alertWarning}>
     🟠 Inspección pendiente
     </Text>
@@ -178,7 +186,6 @@ return (
     </ScrollView>
 );
 };
-
 
 const styles = StyleSheet.create({
 container: {
@@ -256,7 +263,7 @@ activityContainer: {
     borderRadius: 12,
     padding: 20,
     marginTop: 5,
-    marginBottom: 30,
+    marginBottom: 15,
     borderWidth: 1,
     borderColor: colors.borde,
 },
@@ -272,27 +279,27 @@ activity: {
     marginBottom: 10,
 },
 alertContainer: {
-backgroundColor: colors.superficie,
-borderRadius: 12,
-padding: 20,
-marginBottom: 30,
-borderWidth: 1,
-borderColor: colors.borde,
+    backgroundColor: colors.superficie,
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 30,
+    borderWidth: 1,
+    borderColor: colors.borde,
 },
 alertItem: {
-paddingVertical: 10,
-borderBottomWidth: 1,
-borderBottomColor: colors.borde,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.borde,
 },
 alertDanger: {
-fontSize: 14,
-color: colors.peligro,
-fontWeight: '600',
+    fontSize: 14,
+    color: colors.peligro,
+    fontWeight: '600',
 },
 alertWarning: {
-fontSize: 14,
-color: colors.advertencia,
-fontWeight: '600',
+    fontSize: 14,
+    color: colors.advertencia,
+    fontWeight: '600',
 },
 
 });
