@@ -69,39 +69,43 @@ return (
 
 {/* INSPECCIONES */}
 
-        <View style={styles.card}>
+        <Pressable
+style={styles.card}
+onPress={() => router.push('/inspecciones')}
+>
 
-        <Text style={styles.cardNumber}>
-            8
-        </Text>
+<Text style={styles.cardNumber}>
+    8
+</Text>
 
-        <Text style={styles.cardTitle}>
-            Inspecciones
-        </Text>
+<Text style={styles.cardTitle}>
+    Inspecciones
+</Text>
 
-        <Text style={styles.cardDescription}>
-            Inspecciones realizadas
-        </Text>
+<Text style={styles.cardDescription}>
+    Inspecciones realizadas
+</Text>
 
-        </View>
+</Pressable>
 {/* INCIDENTES */}
-        <View style={styles.card}>
+        <Pressable
+style={styles.card}
+onPress={() => router.push('/incidentes')}
+>
+<Text style={styles.cardNumber}>
+    3
+</Text>
 
-        <Text style={styles.cardNumber}>
-            3
-        </Text>
+<Text style={styles.cardTitle}>
+    Incidentes
+</Text>
 
-        <Text style={styles.cardTitle}>
-            Incidentes
-        </Text>
+<Text style={styles.cardDescription}>
+    Incidentes registrados
+</Text>
+</Pressable>
 
-        <Text style={styles.cardDescription}>
-            Incidentes registrados
-        </Text>
-
-        </View>
-
-        {/* CAPACITACIONES */}
+{/* CAPACITACIONES */}
 
         <View style={styles.card}>
 
